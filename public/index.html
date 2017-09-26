@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的购物车</title>
+    <link rel="stylesheet" href="css/defaults/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/defaults/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <link rel="stylesheet" href="css/index.css" type="text/css" />
+    <link rel="stylesheet" href="css/g_alert.css" type="text/css" />
+    <link rel="icon" type="image/png" href="img/icon/icon.png" sizes="32x32">
+</head>
+<body>
+    <div id="app" class="main">
+        <header class="container">
+            <span>我的购物车</span>
+        </header>
+        <div class="container">
+            <div class="title">
+                <ul class="row">
+                    <li class="col-xs-1 col-sm-1 col-md-1">
+                        <b class="checkBox" @click="checkedAll(true)" v-bind:class="{'checked':checkAll}"></b>
+                        <span>全选</span>
+                    </li>
+                    <li class="col-xs-6 col-sm-6 col-md-6">商品</li>
+                    <li class="col-xs-1 col-sm-1 col-md-1">单价</li>
+                    <li class="col-xs-2 col-sm-2 col-md-2">数量</li>
+                    <li class="col-xs-1 col-sm-1 col-md-1">小计</li>
+                    <li class="col-xs-1 col-sm-1 col-md-1">操作</li>
+                </ul>
+            </div>
+            <div class="whole">
+                <ul class="row strips" v-for="(item,index) in productList">
+                    <li class="cart-tab col-xs-1 col-sm-1 col-md-1">
+                        <b class="checkBox" @click="selectedProduct(item)" v-bind:class="{'checked': item.checked}"></b>
+                    </li>
+                    <li class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="commodity commodityImg">
+                            <img v-bind:src="item.productImage" alt="" class="img-thumbnail">
+                        </div>
+                        <div class="commodity commodityInfo">
+                            <a href="javascript:void(0)" v-text="item.productName"></a>
+                            <div class="give">
+                                <b>赠送：</b>
+                                <span>
+                                    <i  v-for="part in item.parts" v-text="part.partsName"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart-tab col-xs-1 col-sm-1 col-md-1" >{{ item.productPrice | formatMoney }}</li>
+                    <li class="cart-tab col-xs-2 col-sm-2 col-md-2">
+                        <a href="javascript:void(0)" class="numberBtn col-xs-2 col-sm-2 col-md-2" v-on:click="changeMoney(item,-1,index)">-</a>
+                        <input type="text" v-model="item.productQuantity" class="numberBox col-xs-4 col-sm-4 col-md-4" v-on:change="itemTotal" />
+                        <a href="javascript:void(0)" class="numberBtn col-xs-2 col-sm-2 col-md-2" v-on:click="changeMoney(item,1,index)">+</a>
+                    </li>
+                    <li class="subtotal cart-tab col-xs-1 col-sm-1 col-md-1">{{ item.productPrice * item.productQuantity | formatMoney }}</li>
+                    <li class="cart-tab col-xs-1 col-sm-1 col-md-1">
+                        <button type="button" class="btn btn-warning btn-sm" @click="delConfirm(index)">删除</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="g_all" class="md_hidden" v-bind:class="{'md_show':delFlag}"></div>
+            <div id="g_box" class="md_hidden" v-bind:class="{'md_show':delFlag}">
+                <div id="g_title">
+                    <span>提示</span>
+                    <a href="javascript:void(0)" @click="delFlag = false">
+                        <img src="img/alert/closed.png" alt="">
+                    </a>
+                </div>
+                <div id="g_cont">
+                    <img src="img/alert/confirm.jpg" width="100px" height="100px">
+                    <span id="g_msg">
+                        <b v-bind:class="{'md_hidden': judgeCkeckNum}">你确认删除此订单信息吗？</b>
+                        <b class="vm_hidden" v-bind:class="{'vm_show': judgeCkeckNum}">请至少选中一件商品！</b>
+                    </span>
+                </div>
+                <div id="g_buttom">
+                    <div id="g_button" v-bind:class="{'md_hidden': judgeCkeckNum}">
+                        <a class="butt" id="ok" @click="delProduct">确定</a>
+                        <a class="butt" id="false" @click="delFlag = false">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="container">
+            <div class="footCheck col-xs-4 col-sm-5 col-md-7">
+                <span @click="checkedAll(true)">
+                    <b class="checkBox" v-bind:class="{'checked':checkAll}"></b>
+                    <i v-bind:class="{'md_hidden': cancelCheck}">全选</i>
+                </span>
+                <a href="javascript:void(0)" @click="checkedAll(false)" class="md_hidden" v-bind:class="{'md_show': cancelCheck}">取消全选</a>
+            </div>
+            <div class="total col-xs-4 col-sm-4 col-md-3">
+                <span>Item total: </span>
+                <i class="subtotal">{{ subTotals | formatMoney }}</i>
+            </div>
+            <div class="checkout col-xs-4 col-sm-3 col-md-2">
+                <button type="button" class="btn btn-danger btn-lg" @click="corderCeckout">结账</button>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="js/lib/vue-resource.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

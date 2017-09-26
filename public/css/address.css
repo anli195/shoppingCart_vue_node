@@ -1,0 +1,55 @@
+.checkout_addr {
+    width: 100%;
+}
+.check_step {
+    overflow: hidden;
+}
+.check_step ul {
+    width: 100%;
+    overflow: hidden;
+}
+.check_step ul li {
+    float: left;
+    width: 25%;
+    position: relative;
+}
+.check_step ul li:before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-bottom: 4px solid #999;
+}
+.check_step ul li:after {
+    content: '';
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -10px 0 0 -10px;
+    color: #999;
+    border-bottom: 10px solid #999;
+    z-index: 5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

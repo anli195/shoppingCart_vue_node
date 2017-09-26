@@ -1,0 +1,148 @@
+/*
+* 购物车 CSS 样式
+*/
+.md_hidden {
+    display: none;
+}
+.md_show {
+    display: block;
+}
+.vm_hidden {
+    visibility: hidden;
+}
+.vm_show {
+    visibility: visible;
+}
+/*
+* 头部
+*/
+header {
+    text-align: center;
+    font-size: 24px;
+    padding: 20px 0;
+    position: relative;
+}
+header:before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #ccc;
+    z-index: 0;
+}
+header span {
+    position: relative;
+    padding: 0 15px;
+    background: #fff;
+    font-weight: bold;
+    color: #999;
+    z-index: 1;
+}
+/*
+* 中间部分标题栏
+*/
+.title {
+    background: #f3f3f3;
+    border: 1px solid #e9e9e9;
+    line-height: 32px;
+    padding: 10px 0 0 0;
+}
+/*
+* 内容
+*/
+.strips {
+    min-height: 72px;
+    padding: 36px 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+.commodity {
+    float: left;
+}
+.commodityImg {
+    width: 140px;
+}
+.commodityInfo {
+    padding: 5px 20px;
+    color: #666;
+}
+.commodityInfo a {
+    display: block;
+    min-height: 58px;
+}
+.commodityInfo a:hover {
+    color: #20a0ff;
+}
+.give {
+    padding: 10px 0 0 0;
+    overflow: hidden;
+}
+.give b {
+    float: left;
+    line-height: 20px;
+}
+.give span {
+    float: left;
+}
+.give span i {
+    display: block;
+    padding: 1px 0 2px 0;
+    line-height: 20px;
+    font-size: 12px;
+}
+.numberBtn {
+    border: 1px solid #999;
+    padding: 1px 0;
+    text-align: center;
+}
+.numberBox {
+    margin: 0 -1px;
+}
+.cart-tab {
+    padding-top: 40px;
+}
+.checkBox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/check/check.png");
+    background-size: contain;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.checked {
+    background-image: url("../img/check/checked.png");
+    background-size: contain;
+}
+.subtotal {
+    color: #d1434a;
+}
+/*
+* 底部
+*/
+footer {
+    padding: 20px 0;
+}
+.footCheck {
+    padding: 20px 0 0 20px;
+}
+.footCheck span b {
+    margin-right: 10px;
+}
+.footCheck span,.footCheck a {
+    float: left;
+    cursor: pointer;
+}
+.total {
+    padding: 15px 0 0 0;
+    font-size: 20px;
+}
+.checkout {
+    text-align: center;
+}
+.checkout button {
+    width: 90%;
+}

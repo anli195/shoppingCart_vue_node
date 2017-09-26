@@ -1,0 +1,95 @@
+#g_title{
+    height:60px;
+    background:#fff;
+    border-radius:5px 5px 0 0;
+    border-bottom:1px solid #eef0f1;
+    line-height:60px;
+    padding-left:25px;
+    font-size:18px;
+    font-weight:700;
+    color:#535e66;
+    position: relative;
+}
+#g_title a {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    right: 25px;
+    top: 0;
+}
+#g_title a:hover {
+    width: 38px;
+    height: 38px;
+    right: 21px;
+}
+#g_title a img {
+    width: 100%;
+}
+#g_cont{
+    height:130px;
+    background:#fff;
+    padding-top:30px;
+    text-align:center;
+}
+#g_all{
+    width:100%;
+    height:100%;
+    z-index:1;
+    position:fixed;
+    filter:Alpha(opacity=50);
+    background:#666666;
+    top:0;
+    left:0;
+    opacity: 0.6
+}
+#g_msg{
+    position:relative;
+    top:-50px;
+    font-size:25px;
+    margin-left:40px;
+}
+#g_buttom{
+    height:60px;
+    border-top:1px solid #eef0f1;
+    border-radius:0px 0px 5px 5px;
+    background:#fff;
+    line-height:60px;
+}
+#g_button{
+    width:200px;
+    height:100%;
+    margin-right:10px;
+    float:right;
+}
+.butt{
+    display:block;
+    margin-top:12px;
+    cursor:pointer;
+    float:left;
+    width:95px;
+    height:35px;
+    line-height:35px;
+    text-align:center;
+    color:#FFFFFF;
+    border-radius:5px;
+}
+#ok{
+    background:#0095d9;
+    color:#FFFFFF;
+    float:right;
+}
+#false{
+    background:#546a79;
+    color:#FFFFFF;
+    float:left;
+}
+#g_box{
+    width:550px;
+    height: 282px;
+    z-index:1;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    margin: -141px 0 0 -275px;
+}
